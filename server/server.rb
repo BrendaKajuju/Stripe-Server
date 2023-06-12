@@ -41,7 +41,7 @@ payment_intent = Stripe::PaymentIntent.create({
 { clientSecret: payment_intent.client_secret }.to_json
 end
 
-get '/,complete' do
+get '/complete' do
  payment_intent = Stripe::PaymentIntent.retrieve(params[:payment_intent])
  payment_intent.to_json
 end
@@ -53,7 +53,7 @@ post '/webhook' do
   webhook_secret = ENV['STRIPE_WEBHOOK_SECRET']
   payload = request.body.read
   if !webhook_secret.empty?
-    # Retrieve the event by verifying the signature using the raw body and secret if webhook signing is configured.
+        # Retrieve the event by verifying the signature using the raw body and secret if webhook signing is configured.
     sig_header = request.env['HTTP_STRIPE_SIGNATURE']
     event = nil
 
