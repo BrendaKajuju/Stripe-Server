@@ -19,4 +19,20 @@ document.addEventListener('DOMContentLoaded', async () => {
     const elements = stripe.elements({ clientSecret })
     const paymentElement = elements.create('payment')
     paymentElement.mount('#payment-element')
+
+    const form = document.getElementById('payment-form')
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const {error} = await stripe.confirmPayment({
+            elements,
+            confirmParams: {
+                return_url: window.location.href.split('?') + '/complete'
+            }
+        })
+        if (error) {
+            const messages = document.getElementById('error-messages')
+            messages.innerText = error.message
+        }
+    })
 })

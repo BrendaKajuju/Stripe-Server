@@ -21,4 +21,4 @@ bundle install
 ruby server.rb
 ```
 
-3. Go to `http://localhost:4242` in your browser to see the demo
+3. Go to `http://localhost:4250` in your browser to see the demo
