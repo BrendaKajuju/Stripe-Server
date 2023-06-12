@@ -3,15 +3,17 @@
 require 'stripe'
 require 'sinatra'
 require 'dotenv'
+require 'sinatra/activerecord'
+set :database, {adapter: "sqlite3", database: "stripe.sqlite3"}
+
 
 # Replace if using a different env file or config
 Dotenv.load
 
 # For sample support and debugging, not required for production:
 Stripe.set_app_info(
-  'stripe-samples/<name-of-sample>/[<name-of-integration-type>]',
-  version: '0.0.1',
-  url: 'https://github.com/stripe-samples'
+  'stripe-samples/<Stripe-Starter>/[Checkout]',
+  version: '0.0.1' 
 )
 Stripe.api_version = '2020-08-27'
 Stripe.api_key = ENV['STRIPE_SECRET_KEY']
