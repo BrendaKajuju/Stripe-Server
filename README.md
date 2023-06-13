@@ -47,19 +47,25 @@ STRIPE_SECRET_KEY=<replace-with-your-secret-key>
 
 `STATIC_DIR` tells the server where to the client files are located and does not need to be modified unless you move the server files.
 
-**2. Follow the server instructions on how to run:**
+**2. Server instructions on how to run:**
 
-Pick the server language you want and follow the instructions in the server folder README on how to run.
-
-For example, if you want to run the Node server:
+cd into server directory
 
 ```
-cd server/node # there's a README in this folder with instructions
+bundle install
 npm install
 npm start
 ```
 
-**3. [Optional] Run a webhook locally:**
+cd into client directory
+
+```
+bundle install
+npm install
+npm start
+```
+
+**3. Run the webhook locally:**
 
 If you want to test the `using-webhooks` integration with a local webhook on your machine, you can use the Stripe CLI to easily spin one up.
 
